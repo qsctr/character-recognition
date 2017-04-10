@@ -1,6 +1,7 @@
 namespace App {
 
     export let training = false;
+    export let trained = false;
 
     export function train(
         onGenerating: (char: string, current: number, total: number) => any,
@@ -23,6 +24,7 @@ namespace App {
                                 onFinished();
                                 worker.removeEventListener('message', listener);
                                 training = false;
+                                trained = true;
                                 break;
                         }
                     };

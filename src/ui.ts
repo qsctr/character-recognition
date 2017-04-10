@@ -1,8 +1,10 @@
 (() => {
 
-    addEventListener('keydown', ({ key }) => {
+    addEventListener('keydown', ({ key, which }) => {
         if (key.length === 1) {
             App.inputArea.renderChar(key);
+        } else if (which === 13) {
+            classify();
         }
     });
 
@@ -19,7 +21,7 @@
     const classifyMessage = document.querySelector('#classify-message') as HTMLElement;
     const classifyMessageExpandable = new Expandable(classifyMessage, false);
 
-    classifyButton.addEventListener('click', () => {
+    function classify() {
         App.classify(output => {
             switch (output.type) {
                 case 'success':
@@ -35,9 +37,15 @@
                     App.outputArea.fillBlack();
                     break;
             }
+            if (!App.trained) {
+                classifyMessage.textContent += `
+The perceptrons have not been trained yet, so this result is probably wrong.`;
+            }
             classifyMessageExpandable.expandTemporary();
         });
-    });
+    }
+
+    classifyButton.addEventListener('click', classify);
 
     const trainButton = document.querySelector('#train') as Element;
     const trainMessage = document.querySelector('#train-message') as HTMLElement;

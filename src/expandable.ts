@@ -24,7 +24,7 @@ class Expandable {
         this.expandTimeout = setTimeout(() => {
             this.collapse();
             this.expandTimeout = null;
-        }, 3000);
+        }, 5000);
     }
 
     collapse() {
