@@ -1,0 +1,71 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: #009688;
+    color: white;
+    display: flex;
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+.spacer {
+    flex: 1 0 40px;
+}
+
+.main-panel {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.display-area {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+}
+
+.display-area-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.display-area-text {
+    margin-top: 20px;
+}
+
+.side-area {
+    overflow: auto;
+    max-width: 350px;
+}
+
+.toggle-button {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.expandable {
+    overflow: hidden;
+    transition: height 0.3s;
+}
+
+.button {
+    background-color: white;
+    border-radius: 2px;
+    color: #009688;
+    cursor: default;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.button + .expandable.expanded {
+    margin-bottom: 10px;
+}

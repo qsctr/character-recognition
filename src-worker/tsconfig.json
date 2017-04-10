@@ -1,0 +1,12 @@
+{
+    "extends": "../tsconfig.json",
+    "compilerOptions": {
+        "rootDir": ".",
+        "outDir": "../out-worker",
+        "lib": ["webworker", "es2015"]
+    },
+    "include": [
+        "./*",
+        "../src-shared/*"
+    ]
+}

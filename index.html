@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Character Recognition</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="spacer"></div>
+        <div class="display-area-container main-panel">
+            <canvas id="input-area" class="display-area" width="50" height="50"></canvas>
+            <div class="display-area-text">Input</div>
+        </div>
+        <div class="spacer"></div>
+        <div class="display-area-container main-panel">
+            <canvas id="output-area" class="display-area" width="50" height="50"></canvas>
+            <div class="display-area-text">Output</div>
+        </div>
+        <div class="spacer"></div>
+        <div class="main-panel side-area">
+            <h1>Character Recognition</h1>
+            <div id="help-toggle-button" class="toggle-button">help</div>
+            <div id="help-toggle-area" class="expandable">
+                <p>Press any letter on your keyboard to render it into the "input" box. Capital letters and numbers work too.</p>
+                <p>You can also draw in the box. Left mouse button is pen, right mouse button is eraser. Pressing space clears the box.</p>
+                <p>To make the perceptrons classify the input, click "classify" or press enter. To make it harder to classify, you can click "add noise".</p>
+            </div>
+            <br>
+            <div id="add-noise" class="button">Add noise</div>
+            <div id="classify" class="button">Classify</div>
+            <div id="classify-message" class="expandable"></div>
+            <div id="train" class="button">Train</div>
+            <div id="train-message" class="expandable"></div>
+            <p id="train-status"></p>
+        </div>
+        <div class="spacer"></div>
+        <script src="out/display-area.js"></script>
+        <script src="out/input-area.js"></script>
+        <script src="out/expandable.js"></script>
+        <script src="out/toggle.js"></script>
+        <script src="out/app.js"></script>
+        <script src="out/train.js"></script>
+        <script src="out/classify.js"></script>
+        <script src="out/ui.js"></script>
+    </body>
+</html>
