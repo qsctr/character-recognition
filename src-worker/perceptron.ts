@@ -3,13 +3,15 @@ class Perceptron {
     readonly learningRate = 0.3;
     readonly iterations = 1000;
     readonly errorRange = 0;
-    weights: number[];
-    threshold: number;
 
-    constructor(inputCount: number) {
-        const randomWeight = () => (Math.random() - 0.5) / 5;
-        this.weights = Array.from({ length: inputCount }, randomWeight);
-        this.threshold = randomWeight();
+    constructor(
+        inputCount: number,
+        public weights = Array.from({ length: inputCount }, Perceptron.randomWeight),
+        public threshold = Perceptron.randomWeight()
+    ) {}
+
+    static randomWeight() {
+        return (Math.random() - 0.5) / 5;
     }
 
     activate(inputs: Uint8ClampedArray) {
@@ -31,6 +33,13 @@ class Perceptron {
                 break;
             }
         }
+    }
+
+    toPerceptronData() {
+        return {
+            weights: this.weights,
+            threshold: this.threshold
+        };
     }
 
 }

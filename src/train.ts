@@ -1,7 +1,7 @@
 namespace App {
 
     export let training = false;
-    export let trained = false;
+    export let trained = initData !== null;
 
     export function train(
         onGenerating: (char: string, current: number, total: number) => any,
@@ -25,6 +25,7 @@ namespace App {
                                 worker.removeEventListener('message', listener);
                                 training = false;
                                 trained = true;
+                                AppStorage.savePerceptronData(data.newData);
                                 break;
                         }
                     };

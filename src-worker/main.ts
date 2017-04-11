@@ -11,7 +11,12 @@ namespace Main {
         switch (data.type) {
             case 'init':
                 chars = data.chars;
-                perceptrons = chars.map(() => new Perceptron(data.inputCount));
+                if (data.initData === null) {
+                    perceptrons = chars.map(() => new Perceptron(data.inputCount));
+                } else {
+                    perceptrons = data.initData.map(({ weights, threshold }) =>
+                        new Perceptron(data.inputCount, weights, threshold));
+                }
                 break;
             case 'train':
                 train(data.trainingSets);

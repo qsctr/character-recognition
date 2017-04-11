@@ -11,7 +11,8 @@ namespace Main {
                 .concat(...trainingSets.filter((_, j) => j !== i).map(set => addOutput(set, 0)))));
         });
         postMessage({
-            type: 'trainFinished'
+            type: 'trainFinished',
+            newData: perceptrons.map(perceptron => perceptron.toPerceptronData())
         } as WorkerMessage);
     }
 

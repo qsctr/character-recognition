@@ -66,6 +66,14 @@ The perceptrons have not been trained yet, so this result is probably wrong.`;
         });
     });
 
+    if (App.initData === null) {
+        trainMessage.textContent = 'Failed to load previous perceptron data from local storage';
+    } else {
+        trainMessage.textContent =
+            'Successfully loaded previous perceptron data from local storage';
+    }
+    trainMessageExpandable.expandTemporary();
+
     addEventListener('load', () => {
         document.body.style.opacity = '1';
     });

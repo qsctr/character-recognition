@@ -7,10 +7,12 @@ namespace App {
 
     export const chars = range('a', 'z').concat(range('A', 'Z'), range('0', '9'), ' ');
     export const worker = new Worker('out-worker/main.js');
+    export const initData = AppStorage.getPerceptronData();
     worker.postMessage({
         type: 'init',
         chars,
-        inputCount: inputArea.getSize()
+        inputCount: inputArea.getSize(),
+        initData
     } as MainMessage);
 
     function range(start: string, end: string) {
