@@ -11,15 +11,15 @@ class Expandable {
     }
 
     expand() {
+        if (this.expandTimeout !== null) {
+            clearTimeout(this.expandTimeout);
+            this.expandTimeout = null;
+        }
         this.elem.style.height = this.elem.scrollHeight + 'px';
         this.elem.classList.add('expanded');
     }
 
     expandTemporary() {
-        if (this.expandTimeout !== null) {
-            clearTimeout(this.expandTimeout);
-            this.expandTimeout = null;
-        }
         this.expand();
         this.expandTimeout = setTimeout(() => {
             this.collapse();
