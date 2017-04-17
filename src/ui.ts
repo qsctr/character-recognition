@@ -37,7 +37,7 @@
                     App.outputArea.fillBlack();
                     break;
             }
-            if (!App.trained) {
+            if (!App.trained && !App.training) {
                 classifyMessage.textContent += `
 The perceptrons have not been trained yet, so this result is probably wrong.`;
             }
